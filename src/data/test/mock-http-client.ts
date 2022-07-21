@@ -2,15 +2,21 @@ import {
   HttpPostClient,
   HttpPostPrams,
 } from '../protocols/http/http-post-client';
+import { HttpResponse, HttpStatusCode } from '../protocols/http/http-reponse';
 
 export class HttpPostClientSpy implements HttpPostClient {
   url?: string;
 
   body?: object;
 
-  async post({ url, body }: HttpPostPrams): Promise<void> {
+  response: HttpResponse = {
+    statusCode: HttpStatusCode.noContent,
+  };
+
+  async post({ url, body }: HttpPostPrams): Promise<HttpResponse> {
     this.url = url;
     this.body = body;
-    return Promise.resolve();
+
+    return Promise.resolve(this.response);
   }
 }
