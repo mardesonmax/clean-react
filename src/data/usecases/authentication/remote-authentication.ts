@@ -1,6 +1,7 @@
 import { HttpPostClient } from '~/data/protocols/http/http-post-client';
 import { HttpStatusCode } from '~/data/protocols/http/http-reponse';
 import { InvalidCredentialsError } from '~/domain/errors/invalid-credentials-error';
+import { UnexpectedError } from '~/domain/errors/unexpected-error';
 import { AuthenticationParams } from '~/domain/usecases/authenticaion';
 
 export class RemoteAuthentication {
@@ -17,8 +18,14 @@ export class RemoteAuthentication {
 
     // eslint-disable-next-line default-case
     switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok:
+        break;
+
       case HttpStatusCode.unauthorized:
         throw new InvalidCredentialsError();
+
+      default:
+        throw new UnexpectedError();
     }
   }
 }
