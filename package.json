@@ -11,6 +11,7 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
+    "clean-webpack-plugin": "^4.0.0",
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -32,10 +33,11 @@
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
+    "start": "webpack-dev-server --open",
     "prepare": "husky install",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage"
