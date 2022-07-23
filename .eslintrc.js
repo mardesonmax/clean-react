@@ -21,6 +21,9 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'no-useless-constructor': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': 'off',
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'react-hooks/rules-of-hooks': 'error',
