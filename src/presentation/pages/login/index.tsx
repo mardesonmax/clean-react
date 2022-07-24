@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Footer,
   FormStatus,
@@ -8,34 +8,38 @@ import {
 import FormContext from '~/presentation/contexts/form/form-context';
 import styles from './styles.scss';
 
-type StateProps = {
-  isLoading: boolean;
-  errorMessage: string;
-};
-
 const Login: React.FC = () => {
-  const [state] = useState<StateProps>({
+  const [state] = useState({
     isLoading: false,
-    errorMessage: '',
   });
+
+  const [errorState] = useState({
+    email: 'Campo obrigatório',
+    password: 'Campo obrigatório',
+    main: '',
+  });
+
+  const valueProvider = useMemo(
+    () => ({ state, errorState }),
+    [state, errorState],
+  );
+
   return (
     <div className={styles.login}>
       <LoginHeader />
 
-      <FormContext.Provider value={state}>
+      <FormContext.Provider value={valueProvider}>
         <form data-testid="form" className={styles.form}>
           <h2>Login</h2>
           <Input
-            state=""
-            setState={null}
+            data-testid="email-status"
             type="email"
             name="email"
             placeholder="Digite seu e-mail"
           />
 
           <Input
-            state=""
-            setState={null}
+            data-testid="password-status"
             type="password"
             name="password"
             placeholder="Digite sua senha"
