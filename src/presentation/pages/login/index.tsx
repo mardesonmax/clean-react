@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '~/presentation/components/footer';
+import Input from '~/presentation/components/input';
 import Header from '~/presentation/components/login-header';
 import { Spinner } from '~/presentation/components/spinner';
 import styles from './styles.scss';
@@ -11,8 +12,21 @@ export function Login() {
 
       <form data-testid="form" className={styles.form}>
         <h2>Login</h2>
-        <input type="email" name="email" placeholder="Digite seu e-mail" />
-        <input type="password" name="password" placeholder="Digite sua senha" />
+        <Input
+          state=""
+          setState={null}
+          type="email"
+          name="email"
+          placeholder="Digite seu e-mail"
+        />
+
+        <Input
+          state=""
+          setState={null}
+          type="password"
+          name="password"
+          placeholder="Digite sua senha"
+        />
         <button type="submit">Entrar</button>
 
         <Spinner />
