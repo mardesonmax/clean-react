@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '~/presentation/components/footer';
+import FormStatus from '~/presentation/components/form-status';
 import Input from '~/presentation/components/input';
 import Header from '~/presentation/components/login-header';
 import { Spinner } from '~/presentation/components/spinner';
@@ -29,7 +30,7 @@ export function Login() {
         />
         <button type="submit">Entrar</button>
 
-        <Spinner />
+        <FormStatus state="" />
       </form>
 
       <Footer />
