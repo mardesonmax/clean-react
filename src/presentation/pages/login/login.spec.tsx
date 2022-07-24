@@ -10,5 +10,9 @@ describe('Login Component', () => {
     const errorWrap = getByTestId('error-wrap');
 
     expect(errorWrap.childElementCount).toBe(0);
+
+    const buttonSubmit = getByTestId('submit') as HTMLButtonElement;
+
+    expect(buttonSubmit.disabled).toBe(true);
   });
 });
