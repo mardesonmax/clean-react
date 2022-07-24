@@ -1,15 +1,16 @@
 import React from 'react';
-import Footer from '~/presentation/components/footer';
-import FormStatus from '~/presentation/components/form-status';
-import Input from '~/presentation/components/input';
-import Header from '~/presentation/components/login-header';
-import { Spinner } from '~/presentation/components/spinner';
+import {
+  Footer,
+  FormStatus,
+  Input,
+  LoginHeader,
+} from '~/presentation/components';
 import styles from './styles.scss';
 
-export function Login() {
+const Login: React.FC = () => {
   return (
     <div className={styles.login}>
-      <Header />
+      <LoginHeader />
 
       <form data-testid="form" className={styles.form}>
         <h2>Login</h2>
@@ -36,4 +37,6 @@ export function Login() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Login;

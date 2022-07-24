@@ -5,7 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   isNegative?: boolean;
 }
 
-export const Spinner: React.FC<Props> = ({ isNegative, ...props }: Props) => {
+const Spinner: React.FC<Props> = ({ isNegative, ...props }: Props) => {
   const negativeClass = isNegative ? styles.negative : '';
   return (
     <div
@@ -19,3 +19,5 @@ export const Spinner: React.FC<Props> = ({ isNegative, ...props }: Props) => {
     </div>
   );
 };
+
+export default Spinner;
